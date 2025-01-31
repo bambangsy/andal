@@ -32,6 +32,10 @@ class UserResource extends Resource
                 BadgeColumn::make('groups.name')
                     ->label('Groups')
                     ->colors(['primary']),
+                TextColumn::make('roles.name')
+                    ->sortable()
+                    ->label('Roles'),
+                
             ]);
     }
 
@@ -49,6 +53,11 @@ class UserResource extends Resource
                     ->multiple()
                     ->relationship('groups', 'name')
                     ->preload(),
+                Select::make('roles')
+                    ->relationship('roles', 'name')
+                    ->multiple()
+                    ->preload()
+                    ->label('Roles'),
             ]);
     }
 

@@ -28,7 +28,15 @@ class HomeController extends Controller
     }
     public function show($id)
     {
+        $user = Auth::user(); 
+        $groupselected = $user->groups;
         $dashboard = Dashboard::find($id);
-        return view('dashboard-show', compact('dashboard'));
+
+        // Check if the dashboard's groups match the user's groups
+        if ($dashboard->groups->intersect($groupselected)->isNotEmpty()) {
+            return view('dashboard-show', compact('dashboard'));
+        } else {
+            abort(403, 'Unauthorized action.');
+        }
     }
 }

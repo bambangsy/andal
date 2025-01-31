@@ -15,7 +15,12 @@ Route::get('/dashboard', [HomeController::class, 'index'])
 Route::get('/dashboard/{id}', [HomeController::class, 'show'])
     ->middleware(['auth', 'verified'])->name('dashboard.show');
 
+Route::get('/admin1', function () {
+    return redirect('/admin');
+})->middleware(['auth', 'verified'])->name('admin1');
 
+
+    
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
