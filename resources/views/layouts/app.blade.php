@@ -15,7 +15,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
+        <div class="min-h-screen bg-gray-100" style="background-image: url('/img/andifa2.jpg'); background-size: cover; background-position: center; background-color: rgba(0, 0, 0, 0.2); background-blend-mode: overlay;">
             @include('layouts.navigation')
 
             <!-- Page Heading -->
