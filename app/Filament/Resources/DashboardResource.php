@@ -32,6 +32,9 @@ class DashboardResource extends Resource
                 BadgeColumn::make('groups.name')
                     ->label('Groups')
                     ->colors(['warning']),
+                BadgeColumn::make('companies.name')
+                    ->label('Companies')
+                    ->colors(['success']),
             ]);
     }
 
@@ -45,9 +48,13 @@ class DashboardResource extends Resource
                     ->multiple()
                     ->relationship('groups', 'name')
                     ->preload(),
+                Select::make('companies')
+                    ->multiple()
+                    ->relationship('companies', 'name')
+                    ->preload()
+                    ->label('Companies'),
             ]);
     }
-
 
     public static function getRelations(): array
     {

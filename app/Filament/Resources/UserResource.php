@@ -35,7 +35,9 @@ class UserResource extends Resource
                 TextColumn::make('roles.name')
                     ->sortable()
                     ->label('Roles'),
-                
+                BadgeColumn::make('companies.name')
+                    ->label('Companies')
+                    ->colors(['success']),
             ]);
     }
 
@@ -58,9 +60,13 @@ class UserResource extends Resource
                     ->multiple()
                     ->preload()
                     ->label('Roles'),
+                Select::make('companies')
+                    ->multiple()
+                    ->relationship('companies', 'name')
+                    ->preload()
+                    ->label('Companies'),
             ]);
     }
-
 
     public static function getRelations(): array
     {

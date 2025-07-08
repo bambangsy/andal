@@ -1,26 +1,23 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
+            {{ __('Companies') }}
         </h2>
     </x-slot>
 
-
+    <div class="flex justify-start mb-4">
+        
+    </div>
 
     <div class="py-2">
 
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-12">
-            <div class="flex justify-start my-6">
-                <a href="{{ route('dashboard') }}" class="inline-flex items-center px-4 py-2 bg-white border border-transparent rounded-md font-semibold text-xs text-black uppercase tracking-widest hover:bg-gray-200 focus:bg-gray-200 active:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
-                    {{ __('< Back to Company') }}
-                </a>
-            </div>
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg px-6">
                 <div class="p-6 text-gray-900">
                     <ul>
-                        @foreach($dashboards as $dashboard)
+                        @foreach($companies as $company)
                             <li class="mb-4 hover:bg-gray-100 transition duration-300 ease-in-out transform hover:scale-105">
-                                <a href="{{ route('dashboard.show', ['id' => $dashboard->id]) }}" class="block text-black hover:text-blue-800 hover:underline p-4 bg-gray-50 rounded-lg shadow-md">
+                                <a href="{{ route('dashboard.listByCompany', ['companyId' => $company->id]) }}" class="block text-black hover:text-blue-800 hover:underline p-4 bg-gray-50 rounded-lg shadow-md">
                                     <div class="flex items-center">
                                         <div class="flex-shrink-0">
                                             <svg class="h-6 w-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -28,7 +25,7 @@
                                             </svg>
                                         </div>
                                         <div class="ml-4">
-                                            <span class="font-semibold text-black">{{ $dashboard->title }}</span>
+                                            <span class="font-semibold text-black">{{ $company->name }}</span>
                                         </div>
                                     </div>
                                 </a>

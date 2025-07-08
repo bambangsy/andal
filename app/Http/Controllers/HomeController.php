@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Company;
 use App\Models\Dashboard;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -16,14 +17,20 @@ class HomeController extends Controller
         // Get the current authenticated user
         $user = Auth::user(); 
         $groupselected = $user->groups;
+        $companyselected = $user->companies;
         
-        // Filter dashboards based on the groups the user belongs to
-        $dashboards = Dashboard::whereHas('groups', function($query) use ($groupselected) {
-            $query->whereIn('groups.id', $groupselected->pluck('id'));
+        $companies = Company::whereHas('users', function($query) use ($user) {
+            $query->where('users.id', $user->id);
         })->get();
+        
+        return view('companies', compact('companies'));
+        // // Filter dashboards based on the groups the user belongs to
+        // $dashboards = Dashboard::whereHas('groups', function($query) use ($groupselected) {
+        //     $query->whereIn('groups.id', $groupselected->pluck('id'));
+        // })->get();
 
 
-        return view('dashboard', compact('dashboards'));
+        // return view('dashboard', compact('dashboards'));
         
     }
     public function show($id)

@@ -18,8 +18,9 @@
         <div class="max-w-full mx-auto sm:px-6 lg:px-12">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
-                        <iframe title="dashboard penjualan" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="{{ $dashboard->link }}" frameborder="0" allowFullScreen="true"></iframe>
+                    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto; resize: vertical;">
+                        <iframe title="dashboard penjualan" class="absolute top-0 left-0 w-full h-full" src="{{ $dashboard->link }}" frameborder="0" allowfullscreen></iframe>
+
                     </div>
                 </div>
             </div>
