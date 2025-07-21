@@ -17,6 +17,22 @@
         document.addEventListener('DOMContentLoaded', function() {
             const images = [
                 '/img/andifa1.jpg',
+                '/img/AAB1.jpg',
+                '/img/AAB2.jpg',
+                '/img/AKBP1.jpg',
+                '/img/AKBP2.jpg',
+                '/img/APE1.jpg',
+                '/img/APE2.jpg',
+                '/img/APE3.jpg',
+                '/img/APE4.jpg',
+                '/img/AZAZ BANK1.jpg',
+                '/img/BSSB1.jpg',
+                '/img/BSSB2.jpg',
+                '/img/BSSB3.jpg',
+                '/img/GRAND FITRAH1.jpg',
+                '/img/GRAND FITRAH2.jpg',
+                '/img/GRAND FITRAH3.jpg',
+                '/img/GRAND FITRAH4.jpg',
                 '/img/andifa2.jpg',
                 '/img/andifa6.jpg'
             ];
@@ -25,7 +41,7 @@
                 document.body.style.backgroundImage = `url('${images[currentIndex]}')`;
                 currentIndex = (currentIndex + 1) % images.length;
             };
-            setInterval(changeImage, 3000); // Ganti gambar setiap 5 detik
+            setInterval(changeImage, 3000);
         });
     </script>
 </head>
